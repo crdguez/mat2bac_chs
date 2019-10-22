@@ -138,9 +138,12 @@ $A \cdot B = \left[\begin{matrix}-6 & 3\\-3 & 2\end{matrix}\right]$ y $(A \cdot 
 \begin{parts}
 
 
-\part[2] Determine el rango de A según los diferentes valores de k  \begin{solution}  \end{solution}
+\part[2] Determine el rango de A según los diferentes valores de k  \begin{solution} El único menor es el propio determinante $\to\left|\begin{matrix}k & 0 & k\\0 & k + 2 & 0\\1 & 1 & k + 2\end{matrix}\right|=k \left(k + 1\right) \left(k + 2\right)\to k\neq\left[ -2, \  -1, \  0\right]$ rango será 3 \\ 
+\\ caso k=-2: \\ $B=\left[\begin{matrix}-2 & 0 & -2\\0 & 0 & 0\\1 & 1 & 0\end{matrix}\right] \to ran(B)=2$. 
+\\ caso k=-1: \\ $B=\left[\begin{matrix}-1 & 0 & -1\\0 & 1 & 0\\1 & 1 & 1\end{matrix}\right] \to ran(B)=2$. 
+\\ caso k=0: \\ $B=\left[\begin{matrix}0 & 0 & 0\\0 & 2 & 0\\1 & 1 & 2\end{matrix}\right] \to ran(B)=2$.  \end{solution}
 \part[1] Determine la inversa de A para k=1  
-\begin{solution}  \end{solution}
+\begin{solution} $\left[\begin{matrix}1 & 0 & 1\\0 & 3 & 0\\1 & 1 & 3\end{matrix}\right]\xrightarrow{traspuesta}\left[\begin{matrix}1 & 0 & 1\\0 & 3 & 1\\1 & 0 & 3\end{matrix}\right]\xrightarrow{adjunta}\left[\begin{matrix}9 & 0 & -3\\1 & 2 & -1\\-3 & 0 & 3\end{matrix}\right]\xrightarrow{inversa}\left[\begin{matrix}\frac{3}{2} & \frac{1}{6} & - \frac{1}{2}\\0 & \frac{1}{3} & 0\\- \frac{1}{2} & - \frac{1}{6} & \frac{1}{2}\end{matrix}\right]$. \end{solution}
 \end{parts}
 
 

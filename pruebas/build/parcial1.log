@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  22 OCT 2019 07:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  22 OCT 2019 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -624,8 +624,8 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@width=\dimen134
 )
 (build/parcial1.aux
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
+LaTeX Info: Redefining \. on input line 9.
+LaTeX Info: Redefining \% on input line 9.
 )
 \openout1 = `parcial1.aux'.
 
@@ -799,15 +799,31 @@ Overfull \hbox (33.89528pt too wide) in paragraph at lines 110--111
 [] \OT1/cmr/m/n/12 = 2$.$\OMS/cmsy/m/n/12 !$ $[] [] [] [] [] []
  []
 
+
+Overfull \hbox (40.02022pt too wide) in paragraph at lines 141--144
+[]\OT1/cmr/m/n/12 El ^^Suni-co me-nor es el pro-pio de-ter-mi-nan-te $\OMS/cmsy
+/m/n/12 ! [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k [] [] \OMS/cmsy/m/n/12 !
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--144
+
+ []
+
+
+Overfull \hbox (20.59589pt too wide) in paragraph at lines 146--146
+[]$[] [] [] [] [] [] []$\OT1/cmr/m/n/12 . 
+ []
+
 <../img/header_left.png, id=1, 856.19875pt x 332.24126pt>
 File: ../img/header_left.png Graphic file (type png)
 <use ../img/header_left.png>
-Package pdftex.def Info: ../img/header_left.png  used on input line 154.
+Package pdftex.def Info: ../img/header_left.png  used on input line 157.
 (pdftex.def)             Requested size: 76.9351pt x 29.84972pt.
 <../img/header_right.jpeg, id=2, 197.73875pt x 181.67876pt>
 File: ../img/header_right.jpeg Graphic file (type jpg)
 <use ../img/header_right.jpeg>
-Package pdftex.def Info: ../img/header_right.jpeg  used on input line 154.
+Package pdftex.def Info: ../img/header_right.jpeg  used on input line 157.
 (pdftex.def)             Requested size: 38.47049pt x 35.34543pt.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -815,23 +831,19 @@ Package pdftex.def Info: ../img/header_right.jpeg  used on input line 154.
 This exam contains 4 questions with 9 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 13 points.
 This exam has a total of 0 bonus points.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
-
 (build/parcial1.aux
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
 )
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5343 strings out of 494747
- 70945 string characters out of 6176208
- 167460 words of memory out of 5000000
- 8580 multiletter control sequences out of 15000+600000
+ 5345 strings out of 494747
+ 70986 string characters out of 6176208
+ 167481 words of memory out of 5000000
+ 8582 multiletter control sequences out of 15000+600000
  9645 words of font info for 36 fonts, out of 8000000 for 9000
  107 hyphenation exceptions out of 8191
  41i,13n,32p,922b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
