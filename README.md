@@ -1,4 +1,5 @@
-# mat2bac_cit
+# mat2bac_chs
+
 
 Mis recursos de 2º de bachillerato CIT:
 
