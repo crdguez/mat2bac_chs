@@ -1,7 +1,7 @@
 # mat2bac_chs
 
 
-Mis recursos de 2º de bachillerato CIT:
+Mis recursos de 2º de bachillerato de Humanidades y Ciencias Sociales:
 
 
 ## Análisis
