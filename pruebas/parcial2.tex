@@ -1,0 +1,162 @@
+\documentclass[addpoints,spanish, 12pt,a4paper]{exam}
+%\documentclass[answers, spanish, 12pt,a4paper]{exam}
+%\printanswers
+\pointpoints{punto}{puntos}
+\hpword{Puntos:}
+\vpword{Puntos:}
+\htword{Total}
+\vtword{Total}
+\hsword{Resultado:}
+\hqword{Ejercicio:}
+\vqword{Ejercicio:}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{eurosym}
+%\usepackage[spanish,es-lcroman, es-tabla, es-noshorthands]{babel}
+
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{yhmath}
+
+\pointsinrightmargin % Para poner las puntuaciones a la derecha. Se puede cambiar. Si se comenta, sale a la izquierda.
+\extrawidth{-2.4cm} %Un poquito más de margen por si ponemos textos largos.
+\marginpointname{ \emph{\points}}
+
+\usepackage{graphicx}
+\graphicspath{{../img/}} 
+
+\newcommand{\class}{2º Bachillerato CCSS}
+\newcommand{\examdate}{\today}
+\newcommand{\examnum}{Parcial 2ªEv.}
+\newcommand{\tipo}{A}
+
+
+\newcommand{\timelimit}{50 minutos}
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Solución:}\enspace}
+
+
+\pagestyle{head}
+\firstpageheader{\includegraphics[width=0.2\columnwidth]{header_left}}{\textbf{Departamento de Matemáticas\linebreak \class}\linebreak \examnum}{\includegraphics[width=0.1\columnwidth]{header_right}}
+\runningheader{\class}{\examnum}{Página \thepage\ of \numpages}
+\runningheadrule
+
+
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} }
+\textbf{Nombre:} \makebox[3.5in]{\hrulefill} & \textbf{Fecha:}\makebox[1in]{\hrulefill} \\
+ & \\
+\textbf{Tiempo: \timelimit} & Tipo: \tipo 
+\end{tabular*}
+\rule[2ex]{\textwidth}{2pt}
+Esta prueba tiene \numquestions\ ejercicios. La puntuación máxima es de \numpoints. 
+La nota final de la prueba será la parte proporcional de la puntuación obtenida sobre la puntuación máxima. 
+
+\begin{center}
+
+
+\addpoints
+ %\gradetable[h][questions]
+	\pointtable[h][questions]
+\end{center}
+
+\noindent
+\rule[2ex]{\textwidth}{2pt}
+
+\begin{questions}
+
+\question[2] Halla el límite de la función $f(x)=\dfrac{x^{2} - 2 x}{2 x^{2} - 8}$ en $x=2$, $x=-2$, $x=\infty$ y $x=-\infty$  
+
+%\noaddpoints % to omit double points count
+
+\begin{solution}
+$$\lim_{x \to 2^+}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=\frac{1}{4}$$ \\ $$\lim_{x \to 2^-}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=\frac{1}{4}$$ \\ $$\lim_{x \to -2^+}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=-\infty$$ \\ $$\lim_{x \to -2^-}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=\infty$$ \\ $$\lim_{x \to \infty}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=\frac{1}{2}$$ \\ $$\lim_{x \to \infty}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=\frac{1}{2}$$ \\ $$\lim_{x \to -\infty}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=\frac{1}{2}$$ \\ $$\lim_{x \to -\infty}\left(\frac{x^{2} - 2 x}{2 x^{2} - 8}\right)=\frac{1}{2}$$
+
+\end{solution}
+
+
+\addpoints
+
+\question Calcula las siguientes derivadas 
+
+\begin{parts}
+
+
+\part[1] $y=\ln(\frac{x}{3}+1)$ 
+\begin{solution} \end{solution}
+\part[1]  $y=e^{2x+1}$ 
+\begin{solution} \end{solution}
+\part[2]   $y=\left(\dfrac{1-x}{1+x}\right)^2$
+\begin{solution}  \end{solution}
+\end{parts}
+
+\question Dada la función:
+$$f(x)=\begin{cases} x^{2} + 2 x - 1 & si \ x \leq 1 \\\dfrac{4}{x + 1} & si \ x > 1\end{cases}$$ 
+
+\begin{parts}
+
+\part[1] Estudia la continuidad
+\begin{solution} \end{solution}
+\part[1] EStudia la derivabilidad
+\begin{solution} \end{solution}
+\part[1]   ¿Existe algún punto donde $f'(x)=0$?
+\begin{solution}  \end{solution}
+\end{parts}
+
+
+
+\addpoints
+
+
+\question Sea la función  $$\frac{x^{2} - 3 x + 3}{x - 1}$$.
+%\noaddpoints % to omit double points count
+\begin{parts}
+\part[2] Determinar los intervalos de crecimiento y decrecimiento y los extremos relativos  
+
+\part[1] Determinar los extremos relativos  
+
+\part[2] Determinar los intervalos de concavidad y convexidad
+
+\part[1] Determinar los puntos de inflexión  
+
+\part[2] Determina sus asíntotas  
+
+\end{parts}
+
+\begin{solution}
+\includegraphics[scale=0.3]{pa2_1}
+
+$f(x)=\frac{x^{2} - 3 x + 3}{x - 1}=\frac{x^{2} - 3 x + 3}{x - 1}$ . \\ $f'(x)=\frac{2 x - 3}{x - 1} - \frac{x^{2} - 3 x + 3}{\left(x - 1\right)^{2}}=\frac{x \left(x - 2\right)}{x^{2} - 2 x + 1}$ . \\ $f''(x)=\frac{2}{x - 1} - \frac{2 \left(2 x - 3\right)}{\left(x - 1\right)^{2}} + \frac{2 \left(x^{2} - 3 x + 3\right)}{\left(x - 1\right)^{3}}=\frac{2}{x^{3} - 3 x^{2} + 3 x - 1}$ . \\ Asíntotas:\\A.V. $x=1$\\A.O. $y=x - 2$ \\A.O. $y=x - 2$ \\ \\ Crecimiento: $\left(-\infty, 0\right) \cup \left(2, \infty\right)$ \\ Decrecimiento: $\left(0, 1\right) \cup \left(1, 2\right) $\\ Puntos de inflexion: $\left[ \left[ 0, \  max\right], \  \left[ 2, \  min\right]\right]$ \\ 
+
+
+
+\end{solution}
+
+\addpoints
+
+
+
+\question[4] Tenemos que hacer dos chapas cuadradas de dos  materiales distintos de 2 y 3 euros por centímetro cuadrado respectivamente. ¿Cómo hemos de
+elegir los lados de los cuadrados si queremos que el coste total sea mínimo y que la suma de los perímetros de los dos cuadrados sea de un metro?
+
+\begin{solution}
+$C ( x )=5 x^2 - 150 x + 1875 \to$ 10 y 15 cm
+\end{solution}
+
+\addpoints
+
+
+\addpoints
+
+
+
+
+\end{questions}
+
+\end{document}
+\grid
