@@ -30,8 +30,11 @@ def doc_ejer(title="", tipo = 'ejercicios', letra = 'A', soluciones = False):
         \usepackage{graphicx}
         \graphicspath{{../img/}}
         \usepackage{pgf}
-
-
+        
+        \usepackage{pgfplots}
+        \usetikzlibrary{math}
+        \pgfplotsset{compat=1.15}
+        \usepackage{xfp}
 
         \printanswers
         \nopointsinmargin
@@ -122,7 +125,10 @@ def doc_ejer(title="", tipo = 'ejercicios', letra = 'A', soluciones = False):
         \usepackage{pgf}
 
 
-
+        \usepackage{pgfplots}
+        \usetikzlibrary{math}
+        \pgfplotsset{compat=1.15}
+        \usepackage{xfp}
 
         \let\multicolmulticols\multicols
         \let\endmulticolmulticols\endmulticols
@@ -445,6 +451,15 @@ def escribir_ejercicios(df_ejercicios, fichero = 'prueba3', tipo = 'ejercicios')
         """)
 
     f.close()
+    
+def escribir_ejercicios2(df_ejercicios, fichero = 'prueba3', tipo = 'ejercicios') :
+    fichero = fichero + '.tex'
+    f = open(fichero,'a')
+    for s in df_ejercicios.index :
+        f.write(r'\question %s' % df_ejercicios.loc[s].enunciado)
+        f.write(r' \begin{solution}   %s   \end{solution}'  % df_ejercicios.loc[s].solucion)
+    f.close()
+
 
 
 def escribir_fin(fichero = 'prueba3') :
