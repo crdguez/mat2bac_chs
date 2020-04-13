@@ -135,7 +135,7 @@ c) Tomando un nivel del 95\% dar el intervalo de confianza de $\mu$. \begin{solu
     \end{tikzpicture} \\
        \end{solution}\question p71e02- Cuál debe ser el tamaño de una muestra si se quiere estimar el gasto medio de una familia en electricidad,
 mensualmente, con un error menor de 1.500 pesetas y el 95/% como nivel de confianza, sabiendo que el gasto
-medio en 1999 era de 13.300 ptas. con una desviación de 1.200 ptas. \begin{solution}   $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
+medio en 1999 era de 13.300 ptas. con una desviación de 1.200 ptas. \begin{solution}   Calculamos el tamaño de la muestra para estimar la media con un error máximo: 1500, si la desviación típica es: 1200 y el grado de confianza: 95.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.95; \crit= 1.96; \a=0.025);}
@@ -146,7 +146,7 @@ medio en 1999 era de 13.300 ptas. con una desviación de 1.200 ptas. \begin{solu
     \node[] at (5.2,1.5) {$\conf$};	
     \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
     \end{tikzpicture} \\
-    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n =\frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2} \to n \geq3$ \\    \end{solution}\question p71e03- Una muestra aleatoria de 100 bombillas producidas por una determinada fábrica, tiene una vida media de
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n \approx \frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2}=2.4586240000000004 \to n \geq3$ \\    \end{solution}\question p71e03- Una muestra aleatoria de 100 bombillas producidas por una determinada fábrica, tiene una vida media de
 1.280 horas con una desviación típica de 140 horas:
 i) Estimar la duración media de las bombillas fabricas por esa fábrica.
 ii) Dar el intervalo de confianza, a un nivel del 0,95 de la estimación anterior. \begin{solution}   i) $\mu\approx 1280$ \\ ii) Calculamos el intervalo de confianza para la media, sabiendo que la media muestral es: 1280, la desviación típica: 140, tamaño de la muestra: 100 y el grado de confianza: 95.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
@@ -208,7 +208,7 @@ ii) Hallar el intervalo de confianza de la estimación anterior a un nivel del 9
 de la ciudad.
 i) Efectuar una estimación puntual del porcentaje de votantes que están a favor de pagar el nuevo
 impuesto.
-ii) Dar el intervalo de confianza, a un nivel del 0,95 de la estimación anterior. \begin{solution}   i) $p \approx \widehat{p} =60$\% \\ ii) $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
+ii) Dar el intervalo de confianza, a un nivel del 0,95 de la estimación anterior. \begin{solution}   i) $p \approx \widehat{p} =60$\% \\ ii) Calculamos el intervalo de confianza para la proporción, si los aciertos son: 135, tamaño de la muestra: 225 y el grado de confianza: 95.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.95; \crit= 1.96; \a=0.025);}
@@ -240,7 +240,7 @@ realizan a lo largo de un año, ¿cuál será el valor medio de los cheques al d
 distribución a las que se ajustarían las muestras de tamaño 30. \begin{solution}   La distribución muestral $\widehat{p} \rightarrow N \left ( p , \sqrt{ \frac{p \cdot (1-p)} {n}}\right )$. Luego: \\ $p \approx \widehat{p}=\frac{48}{120}=\frac{2}{5}$ \\ $\sigma \approx \sqrt{\frac{\frac{48}{120}\cdot \left(1-\frac{48}{120}\right)}{30}}=\frac{\sqrt{5}}{25}$ \\    \end{solution}\question p71e08- En cierto instituto de Enseñanza Secundaria hay matriculados 800 alumnos. A una muestra seleccionada
 aleatoriamente de un 15\% de ellos, se les preguntó si utilizaban la cafetería del centro. Contestaron
 negativamente un total de 24 alumnos. Estima el porcentaje de alumnado que utiliza la cafetería del instituto.
-Determina, con un confianza del 99\%, el error máximo cometido con dicha estimación \begin{solution}   i) Tamaño de la muestra:$120.0$. Alumnos de la muestra que utiliza la cafetería: $96.0\to $ \\ $p \approx \widehat{p} =80$\% \\ ii) $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
+Determina, con un confianza del 99\%, el error máximo cometido con dicha estimación \begin{solution}   i) Tamaño de la muestra:$120.0$. Alumnos de la muestra que utiliza la cafetería: $96.0\to $ \\ $p \approx \widehat{p} =80$\% \\ ii) Calculamos el intervalo de confianza para la proporción, si los aciertos son: 96.0, tamaño de la muestra: 120.0 y el grado de confianza: 95.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.95; \crit= 1.96; \a=0.025);}
@@ -270,7 +270,7 @@ Determina, con un confianza del 99\%, el error máximo cometido con dicha estima
 se quiere
 utilizar una muestra aleatoria de medida n. Calcula el valor mínimo de n para garantizar que, a un nivel de
 confianza del 95\%, el error en la estimación sea menor que 0,005. (Como se desconoce la proporción, se ha de
-tomar el caso más desfavorable que será 0,5) \begin{solution}   $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
+tomar el caso más desfavorable que será 0,5) \begin{solution}   Calculamos el tamaño de la muestra para estimar la proporcion con un error máximo: 0.005, si la proporción muestral es: 0.5 y el grado de confianza: 95.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.95; \crit= 1.96; \a=0.025);}
@@ -312,7 +312,7 @@ la media de ingresos mensuales con un error menor de 3.000 pesetas? \begin{solut
       \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$109920.0$};
       \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=3920.0$}; 
     \end{tikzpicture} \\
-     \\ b) \\$\alpha=1-0.99=0.01\to \frac{\alpha}{2}=0.005$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.005\to P(Z<z_{\alpha/2})=0.995 \to z_{\alpha/2} =2.5758$ \\ 
+     \\ b) \\Calculamos el tamaño de la muestra para estimar la media con un error máximo: 3000, si la desviación típica es: 20000 y el grado de confianza: 99.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.99=0.01\to \frac{\alpha}{2}=0.005$ \\ \\ $P(Z>z_{\alpha/2})=0.005\to P(Z<z_{\alpha/2})=0.995 \to z_{\alpha/2} =2.5758$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.99; \crit= 2.5758; \a=0.005);}
@@ -323,7 +323,7 @@ la media de ingresos mensuales con un error menor de 3.000 pesetas? \begin{solut
     \node[] at (5.2,1.5) {$\conf$};	
     \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
     \end{tikzpicture} \\
-    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n =\frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2} \to n \geq295$ \\    \end{solution}\question p71e13- Sea X la variable aleatoria Tiempo empleado por cada 1000 pesetas de mercancía distribuida en una
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n \approx \frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2}=294.877584 \to n \geq295$ \\    \end{solution}\question p71e13- Sea X la variable aleatoria Tiempo empleado por cada 1000 pesetas de mercancía distribuida en una
 determinada ruta. Una muestra de tamaño 12 proporcionó una media muestral de 3 minutos y una desviación
 típica de 0,5 minutos. Calcular un intervalo de confianza al 95\% para el tiempo medio de reparto cada 1000
 pesetas, suponiendo que la variable aleatoria es aproximadamente normal.
@@ -357,7 +357,7 @@ no sobrepase las 5 ptas.) \begin{solution}   a) \\Calculamos el intervalo de con
       \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$3.2829$};
       \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=0.2829$}; 
     \end{tikzpicture} \\
-     \\  Por tanto, a 5000 pesetas por hora, el coste estará entre: 13585.5 y 16414.5. \\ b) \\$\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
+     \\  Por tanto, a 5000 pesetas por hora, el coste estará entre: 13585.5 y 16414.5. \\ b) \\Calculamos el tamaño de la muestra para estimar la media con un error máximo: 5, si la desviación típica es: 0.5 y el grado de confianza: 95.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.95; \crit= 1.96; \a=0.025);}
@@ -368,7 +368,7 @@ no sobrepase las 5 ptas.) \begin{solution}   a) \\Calculamos el intervalo de con
     \node[] at (5.2,1.5) {$\conf$};	
     \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
     \end{tikzpicture} \\
-    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n =\frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2} \to n \geq1$ \\    \end{solution}\question p71e14- Suponga que la demanda semanal de un cierto artículo, en temporada alta es una variable aleatoria cuya
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n \approx \frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2}=0.038416000000000006 \to n \geq1$ \\    \end{solution}\question p71e14- Suponga que la demanda semanal de un cierto artículo, en temporada alta es una variable aleatoria cuya
 distribución puede considerarse aproximadamente normal.
 Una muestra de 5 semanas proporcionó una media muestral de 875 unidades y una desviación típica
 muestral de 23. Obtener con el 99\% de confianza un intervalo para la demanda media semanal de dicho
@@ -430,7 +430,7 @@ día con un nivel de confianza de 0,95. \begin{solution}   i) Al enunciado le fa
       \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$26.5908$};
       \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=1.5908$}; 
     \end{tikzpicture} \\
-     \\ ii) \\$\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
+     \\ ii) \\Calculamos el tamaño de la muestra para estimar la media con un error máximo: 3000, si la desviación típica es: 3 y el grado de confianza: 95.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.95=0.05\to \frac{\alpha}{2}=0.025$ \\ \\ $P(Z>z_{\alpha/2})=0.025\to P(Z<z_{\alpha/2})=0.975 \to z_{\alpha/2} =1.96$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.95; \crit= 1.96; \a=0.025);}
@@ -441,9 +441,9 @@ día con un nivel de confianza de 0,95. \begin{solution}   i) Al enunciado le fa
     \node[] at (5.2,1.5) {$\conf$};	
     \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
     \end{tikzpicture} \\
-    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n =\frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2} \to n \geq1$ \\    \end{solution}\question p71e16- En un municipio de 8940 personas, mayores de 18 años, nos interesa conocer el porcentaje de sujetos que
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n \approx \frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2}=3.8416e-06 \to n \geq1$ \\    \end{solution}\question p71e16- En un municipio de 8940 personas, mayores de 18 años, nos interesa conocer el porcentaje de sujetos que
 tienen carnet de conducir. Al nivel de confianza del 98\% y con un error no superior a 0,03 , ¿Qué tamaño
-tiene que tener la muestra?. \begin{solution}   Como no sabemos la proporción muestral, tomamos el valor 0.5 que es el que maximiza $p \cdot (1 -p)$ \\ $\alpha=1-0.98=0.02\to \frac{\alpha}{2}=0.01$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.01\to P(Z<z_{\alpha/2})=0.99 \to z_{\alpha/2} =2.3263$ \\ 
+tiene que tener la muestra?. \begin{solution}   Como no sabemos la proporción muestral, tomamos el valor 0.5 que es el que maximiza $p \cdot (1 -p)$ \\ Calculamos el tamaño de la muestra para estimar la proporcion con un error máximo: 0.03, si la proporción muestral es: 0.5 y el grado de confianza: 98.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.98=0.02\to \frac{\alpha}{2}=0.01$ \\ \\ $P(Z>z_{\alpha/2})=0.01\to P(Z<z_{\alpha/2})=0.99 \to z_{\alpha/2} =2.3263$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.98; \crit= 2.3263; \a=0.01);}
@@ -457,7 +457,7 @@ tiene que tener la muestra?. \begin{solution}   Como no sabemos la proporción m
     Error cometido: \\ $E=z_{\alpha / 2}\cdot \sqrt{\frac{\widehat{p}\cdot\left(1-\widehat{p} \right)}{n}} \to n =\frac{\widehat{p}\cdot\left(1-\widehat{p} \right)\cdot z_{\alpha / 2}^2}{E^2} \to n \geq1504$ \\    \end{solution}\question p71e17- Al objeto de optimizar los pedidos de tallas de una prenda de vestir para la próxima temporada, se
 registraron los porcentajes del número de veces que fueron solicitadas las distintas tallas sobre una muestra de
 500 clientes. Si el porcentaje del número de veces para la talla media fueron del 23\%, calcule un intervalo de
-confianza para tal porcentaje con un nivel de significación del 3\% \begin{solution}   $\alpha=1-0.97=0.03\to \frac{\alpha}{2}=0.015$ \\ \\ Valor crítico: \\ $P(Z>z_{\alpha/2})=0.015\to P(Z<z_{\alpha/2})=0.985 \to z_{\alpha/2} =2.1701$ \\ 
+confianza para tal porcentaje con un nivel de significación del 3\% \begin{solution}   Calculamos el intervalo de confianza para la proporción, si los aciertos son: 115.0, tamaño de la muestra: 500 y el grado de confianza: 97.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.97=0.03\to \frac{\alpha}{2}=0.015$ \\ \\ $P(Z>z_{\alpha/2})=0.015\to P(Z<z_{\alpha/2})=0.985 \to z_{\alpha/2} =2.1701$ \\ 
     \begin{tikzpicture}[scale=0.8]
     \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
     \tikzmath{\conf = 0.97; \crit= 2.1701; \a=0.015);}

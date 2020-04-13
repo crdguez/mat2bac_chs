@@ -1,0 +1,193 @@
+
+        \documentclass[spanish, 11pt]{exam}
+
+        %These tell TeX which packages to use.
+        \usepackage{array,epsfig}
+        \usepackage{amsmath, textcomp}
+        \usepackage{amsfonts}
+        \usepackage{amssymb}
+        \usepackage{amsxtra}
+        \usepackage{amsthm}
+        \usepackage{mathrsfs}
+        \usepackage{color}
+        \usepackage{multicol, xparse}
+        \usepackage{verbatim}
+
+
+        \usepackage[utf8]{inputenc}
+        \usepackage[spanish]{babel}
+        \usepackage{eurosym}
+
+        \usepackage{graphicx}
+        \graphicspath{{../img/}}
+        \usepackage{pgf}
+        
+        \usepackage{pgfplots}
+        \usetikzlibrary{math}
+        \pgfplotsset{compat=1.15}
+        \usepackage{xfp}
+
+        \printanswers
+        \nopointsinmargin
+        \pointformat{}
+
+        %Pagination stuff.
+        %\setlength{\topmargin}{-.3 in}
+        %\setlength{\oddsidemargin}{0in}
+        %\setlength{\evensidemargin}{0in}
+        %\setlength{\textheight}{9.in}
+        %\setlength{\textwidth}{6.5in}
+        %\pagestyle{empty}
+
+        \let\multicolmulticols\multicols
+        \let\endmulticolmulticols\endmulticols
+        \RenewDocumentEnvironment{multicols}{mO{}}
+         {%
+          \ifnum#1=1
+            #2%
+          \else % More than 1 column
+            \multicolmulticols{#1}[#2]
+          \fi
+         }
+         {%
+          \ifnum#1=1
+          \else % More than 1 column
+            \endmulticolmulticols
+          \fi
+         }
+        \renewcommand{\solutiontitle}{\noindent\textbf{Sol:}\enspace}
+
+        \newcommand{\samedir}{\mathbin{\!/\mkern-5mu/\!}}
+
+        \newcommand{\class}{2º Bachillerato CCSS}
+        \newcommand{\examdate}{\today}
+
+        \newcommand{\tipo}{A}
+
+
+        \newcommand{\timelimit}{50 minutos}
+
+
+
+        \pagestyle{head}
+        \firstpageheader{\includegraphics[width=0.2\columnwidth]{header_left}}{\textbf{Departamento de Matemáticas\linebreak \class}\linebreak \examnum}{\includegraphics[width=0.1\columnwidth]{header_right}}
+        \runningheader{\class}{\examnum}{Página \thepage\ of \numpages}
+        \runningheadrule
+
+        \newcommand{\examnum}{Ampliación Estadística}
+        \begin{document}
+        \begin{questions}
+        \question Para estimar el peso medio de las chicas de
+16 años de una ciudad, se toma una mues-
+tra aleatoria de 100 de ellas. Se obtienen
+los siguientes parámetros: $\overline{x}$ = 52,5 kg,
+s = 5,3 kg.
+Se realiza la afirmación siguiente:
+“El peso medio de las chicas de 16 años de
+esta ciudad está entre 51 kg y 54 kg”.
+¿Con qué nivel de confianza se hace la
+afirmación? \begin{solution}   Calculamos el grado de confianza para un error máximo: 1.5, siendo el tamaño muestral: 100 y la desviación típica: 5.3. \\ \\  \\ Como $E=z_{\alpha / 2}\cdot \frac{\sigma}{\sqrt{n}} \Rightarrow z_{\alpha / 2} =\frac{E \cdot \sqrt{n}}{\sigma}\to z_{\alpha / 2}=2.83$ \\ $P(Z>z_{\alpha / 2})=P(Z>2.83)=\frac{\alpha}{2}=0.002327$ \\ $\alpha=0.004655 \to \quad confianza=1 - \alpha=0.9953 \to 99.53 \%$    \end{solution}\question Un fabricante de lámparas de bajo consumo sabe que el tiempo de duración, en horas, de las
+lámparas que fabrica sigue una distribución normal de media desconocida y desviación típica 180
+horas. Con una muestra de dichas lámparas elegida al azar y con un nivel de confianza del 97\%,
+obtuvo para la media el intervalo de confianza (10 072,1; 10 127,9).
+a) Calcula el valor que obtuvo para la media de la muestra y el tamaño de muestra utilizado.
+b) Si se quiere que el error de su estimación sea como máximo de 24 horas y se utiliza una muestra de
+tamaño 225, ¿cuál será entonces el nivel de confianza? \begin{solution}   a) \\ Del intervalo obtenemos la media muestral: 10100.0 y el error máximo: $10100.0-10072.1=27.9$ \\ Calculamos el tamaño de la muestra para estimar la media con un error máximo: 27.9, si la desviación típica es: 180 y el grado de confianza: 97.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.97=0.03\to \frac{\alpha}{2}=0.015$ \\ \\ $P(Z>z_{\alpha/2})=0.015\to P(Z<z_{\alpha/2})=0.985 \to z_{\alpha/2} =2.1701$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.97; \crit= 2.1701; \a=0.015);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n \approx \frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2}=196.0180649323622 \to n \geq197$ \\ b) \\ Calculamos el grado de confianza para un error máximo: 24, siendo el tamaño muestral: 225 y la desviación típica: 180. \\ \\  \\ Como $E=z_{\alpha / 2}\cdot \frac{\sigma}{\sqrt{n}} \Rightarrow z_{\alpha / 2} =\frac{E \cdot \sqrt{n}}{\sigma}\to z_{\alpha / 2}=2.0$ \\ $P(Z>z_{\alpha / 2})=P(Z>2.0)=\frac{\alpha}{2}=0.02275$ \\ $\alpha=0.0455 \to \quad confianza=1 - \alpha=0.9545 \to 95.45 \%$    \end{solution}\question EVAU - Junio 2011. La edad a la que obtienen el permiso de conducir los habitantes de una determinada población
+es una variable aleatoria que se puede aproximar por una distribución normal de media 24 años y
+desviación típica 4 años. Se elige aleatoriamente una muestra de 100 habitantes de dicha población. Sea $\overline{X}$
+la media muestral de la edad de obtención del permiso de conducir.
+a) ¿Cuáles son la media y la varianza de $\overline{X}$ ?
+
+b) Halle el intervalo de confianza al 90\% para $\overline{X}$ .
+ \begin{solution}   a) \\ La distribución $\overline{X} \approx N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)$. Por tanto: \\ $\mu_{\overline{X}}=mu=24$ y $\sigma_{\overline{X}}=\frac{\sigma}{\sqrt{n}}=0.4 \to var({\overline{X}})=\sigma_{\overline{X}}^2=0.16$ \\ b) \\ Calculamos el intervalo de confianza para la media, sabiendo que la media muestral es: 24, la desviación típica: 4, tamaño de la muestra: 100 y el grado de confianza: 90.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.9=0.1\to \frac{\alpha}{2}=0.05$ \\ \\ $P(Z>z_{\alpha/2})=0.05\to P(Z<z_{\alpha/2})=0.95 \to z_{\alpha/2} =1.6449$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.9; \crit= 1.6449; \a=0.05);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to E=1.6449\cdot \frac{4}{10.0}=0.658$ \\ Por tanto el intervalo de confianza será: \\$\left(\overline{x} - E , \overline{x} + E \right)=\left(24 - 0.658 , 24 + 0.658 \right)=\left(23.342, 24.658 \right)$ \\  \\ 
+    \begin{tikzpicture}[scale=0.4]
+      \tikzmath{\a = -10; \b = 10; \aa = \a -1; \bb = \b + 1 ; \dist = \b - \a; \med = (\a + \b)/2;}
+      \draw[very thick] (\a,0) -- (\b,0);
+      \path [draw=black, fill=white] (\b,0) circle (2pt);
+      \path [draw=black, fill=white] (\a,0.0) circle (2pt);
+      \draw[latex-latex] (\a - 1.5,0) -- (\b + 1.5,0) ;
+      \draw[shift={(\a,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\a,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$23.342$};
+      \draw[shift={(\med,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\med,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$24$};
+      \draw[shift={(\b,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$24.658$};
+      \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=0.658$}; 
+    \end{tikzpicture} \\
+       \end{solution}\question EVAU - Septiembre 2015. La producción en kilos de los naranjos de una variedad es una variable
+aleatoria con distribución normal de desviación típica igual a 5 kilos.
+a) Queremos construir un intervalo de confianza al 96\% para la media de la producción de los
+naranjos de esta variedad de forma que su amplitud no sea mayor que 3 kilos. ¿Qué tamaño de la muestra
+debemos
+tomar? b).Decidimos tomar un tamaño de la muestra igual a 10. Elegimos 10 naranjos de esta
+variedad y medimos su producción en kilos, con los siguientes resultados:
+82 , 90 , 87 , 75 , 78 , 83 , 92 , 77 , 85 , 86
+Calcular el intervalo de confianza al 96\% para la media de la producción de los naranjos de esta variedad. \begin{solution}   a) \\Calculamos el tamaño de la muestra para estimar la media con un error máximo: 1.5, si la desviación típica es: 5 y el grado de confianza: 96.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.96=0.04\to \frac{\alpha}{2}=0.02$ \\ \\ $P(Z>z_{\alpha/2})=0.02\to P(Z<z_{\alpha/2})=0.98 \to z_{\alpha/2} =2.0537$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.96; \crit= 2.0537; \a=0.02);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n \approx \frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2}=46.863152111111106 \to n \geq47$ \\ b) \\ La media muestral es: 83.5 \\Calculamos el intervalo de confianza para la media, sabiendo que la media muestral es: 83.5, la desviación típica: 5, tamaño de la muestra: 10 y el grado de confianza: 96.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.96=0.04\to \frac{\alpha}{2}=0.02$ \\ \\ $P(Z>z_{\alpha/2})=0.02\to P(Z<z_{\alpha/2})=0.98 \to z_{\alpha/2} =2.0537$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.96; \crit= 2.0537; \a=0.02);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to E=2.0537\cdot \frac{5}{3.1622776601683795}=3.2472$ \\ Por tanto el intervalo de confianza será: \\$\left(\overline{x} - E , \overline{x} + E \right)=\left(83.5 - 3.2472 , 83.5 + 3.2472 \right)=\left(80.2528, 86.7472 \right)$ \\  \\ 
+    \begin{tikzpicture}[scale=0.4]
+      \tikzmath{\a = -10; \b = 10; \aa = \a -1; \bb = \b + 1 ; \dist = \b - \a; \med = (\a + \b)/2;}
+      \draw[very thick] (\a,0) -- (\b,0);
+      \path [draw=black, fill=white] (\b,0) circle (2pt);
+      \path [draw=black, fill=white] (\a,0.0) circle (2pt);
+      \draw[latex-latex] (\a - 1.5,0) -- (\b + 1.5,0) ;
+      \draw[shift={(\a,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\a,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$80.2528$};
+      \draw[shift={(\med,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\med,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$83.5$};
+      \draw[shift={(\b,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$86.7472$};
+      \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=3.2472$}; 
+    \end{tikzpicture} \\
+       \end{solution}\question EVAU - Junio 2012. La cantidad de horas que duermen los vecinos de un pueblo de Zaragoza se puede aproximar
+por una distribución normal con una desviación típica de 0,64. Se toma una muestra aleatoria simple y se
+obtienen los siguientes datos (en horas que duermen cada noche):
+6,9 7,3 7,6 6,6 6,5 7,1 6,2 6,9 7,8 6,7 7,0 6,5 5,5 7,2 7,6 5,8
+a) Calcular la media muestral del número de horas que se duerme cada noche.
+b) Determinar el nivel de confianza para el cual el intervalo de confianza para la media de
+horas que se duerme cada noche es (6,65 , 7). Detallar los pasos realizados para obtener los resultados. \begin{solution}   a) \\ La media muestral es: 6.825 \\b) \\ Del intervalo obtenemos la media muestral: 6.825 y el error máximo: $6.825-6.65=0.175$ \\ Calculamos el grado de confianza para un error máximo: 0.175, siendo el tamaño muestral: 16 y la desviación típica: 0.64. \\ \\  \\ Como $E=z_{\alpha / 2}\cdot \frac{\sigma}{\sqrt{n}} \Rightarrow z_{\alpha / 2} =\frac{E \cdot \sqrt{n}}{\sigma}\to z_{\alpha / 2}=1.09$ \\ $P(Z>z_{\alpha / 2})=P(Z>1.09)=\frac{\alpha}{2}=0.1379$ \\ $\alpha=0.2757 \to \quad confianza=1 - \alpha=0.7243 \to 72.43 \%$    \end{solution}
+    \end{questions}
+    \end{document}
+    
