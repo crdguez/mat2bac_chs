@@ -1,0 +1,132 @@
+,enunciado,solucion
+0,"Se sabe que el gasto mensual en teléfono de los habitantes de una ciudad sigue una distribución normal
+de desviación típica 6 euros. Se toma una muestra de 10 jóvenes y se obtienen los siguientes resultados (expresados 
+en euros): \\ 24.5, 11, 16.5, 18.5, 21.5, 25, 6.5, 12,
+10.5, 9.5  \\ Construya un intervalo de confianza de nivel 92 \% para la media del gasto mensual en 
+teléfono de los habitantes 
+de la ciudad.","Calculamos el intervalo de confianza para la media, sabiendo que la media muestral es: 15.55, la desviación típica: 6, tamaño de la muestra: 10 y el grado de confianza: 92.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.92=0.08\to \frac{\alpha}{2}=0.04$ \\ \\ $P(Z>z_{\alpha/2})=0.04\to P(Z<z_{\alpha/2})=0.96 \to z_{\alpha/2} =1.7507$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.92; \crit= 1.7507; \a=0.04);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to E=1.7507\cdot \frac{6}{3.1622776601683795}=3.3217$ \\ Por tanto el intervalo de confianza será: \\$\left(\overline{x} - E , \overline{x} + E \right)=\left(15.55 - 3.3217 , 15.55 + 3.3217 \right)=\left(12.2283, 18.8717 \right)$ \\  \\ 
+    \begin{tikzpicture}[scale=0.4]
+      \tikzmath{\a = -10; \b = 10; \aa = \a -1; \bb = \b + 1 ; \dist = \b - \a; \med = (\a + \b)/2;}
+      \draw[very thick] (\a,0) -- (\b,0);
+      \path [draw=black, fill=white] (\b,0) circle (2pt);
+      \path [draw=black, fill=white] (\a,0.0) circle (2pt);
+      \draw[latex-latex] (\a - 1.5,0) -- (\b + 1.5,0) ;
+      \draw[shift={(\a,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\a,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$12.2283$};
+      \draw[shift={(\med,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\med,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$15.55$};
+      \draw[shift={(\b,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$18.8717$};
+      \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=3.3217$}; 
+    \end{tikzpicture} \\
+    "
+1,"La duración de las bombillas de un fabricante es una variable aleatoria con distribución
+normal de desviación típica 80 horas. \\ Queremos construir un intervalo de confianza al 97\% para la media de la duración de
+las bombillas del fabricante, de forma que el error no sea mayor de 10 horas. ¿Qué tamaño de la muestra
+debemos tomar?","Calculamos el tamaño de la muestra para estimar la media con un error máximo: 10, si la desviación típica es: 80 y el grado de confianza: 97.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.97=0.03\to \frac{\alpha}{2}=0.015$ \\ \\ $P(Z>z_{\alpha/2})=0.015\to P(Z<z_{\alpha/2})=0.985 \to z_{\alpha/2} =2.1701$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.97; \crit= 2.1701; \a=0.015);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to n \approx \frac{\sigma^2 \cdot z_{\alpha / 2}^2}{E^2}=301.39737664000006 \to n \geq302$ \\ "
+2,"La duración de las bombillas de un fabricante es una variable aleatoria con distribución
+normal de desviación típica 80 horas. \\ Decidimos tomar un tamaño de la muestra igual a 150, comprobamos la duración de cada
+bombilla y calculamos su promedio, que resulta ser 1053 horas. Calcular el intervalo de confianza al 97\%
+para la media de la duración de las bombillas del fabricante.","Calculamos el intervalo de confianza para la media, sabiendo que la media muestral es: 1053, la desviación típica: 80, tamaño de la muestra: 150 y el grado de confianza: 97.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.97=0.03\to \frac{\alpha}{2}=0.015$ \\ \\ $P(Z>z_{\alpha/2})=0.015\to P(Z<z_{\alpha/2})=0.985 \to z_{\alpha/2} =2.1701$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.97; \crit= 2.1701; \a=0.015);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \to E=2.1701\cdot \frac{80}{12.24744871391589}=14.175$ \\ Por tanto el intervalo de confianza será: \\$\left(\overline{x} - E , \overline{x} + E \right)=\left(1053 - 14.175 , 1053 + 14.175 \right)=\left(1038.825, 1067.175 \right)$ \\  \\ 
+    \begin{tikzpicture}[scale=0.4]
+      \tikzmath{\a = -10; \b = 10; \aa = \a -1; \bb = \b + 1 ; \dist = \b - \a; \med = (\a + \b)/2;}
+      \draw[very thick] (\a,0) -- (\b,0);
+      \path [draw=black, fill=white] (\b,0) circle (2pt);
+      \path [draw=black, fill=white] (\a,0.0) circle (2pt);
+      \draw[latex-latex] (\a - 1.5,0) -- (\b + 1.5,0) ;
+      \draw[shift={(\a,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\a,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$1038.825$};
+      \draw[shift={(\med,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\med,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$1053$};
+      \draw[shift={(\b,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$1067.175$};
+      \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=14.175$}; 
+    \end{tikzpicture} \\
+    "
+3,"Para optimizar los pedidos de las tallas de zapatos para un centro comercial, se
+registraron los porcentajes del número de veces que fueron solicitadas las distintas tallas sobre una muestra de
+1000 clientes. Si el porcentaje del número de veces para la talla media fueron del 25\%, calcule un intervalo de
+confianza para tal porcentaje con un nivel de significación del 4\%","Calculamos el intervalo de confianza para la proporción, si los aciertos son: 250.0, tamaño de la muestra: 1000 y el grado de confianza: 96.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.96=0.04\to \frac{\alpha}{2}=0.02$ \\ \\ $P(Z>z_{\alpha/2})=0.02\to P(Z<z_{\alpha/2})=0.98 \to z_{\alpha/2} =2.0537$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.96; \crit= 2.0537; \a=0.02);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha / 2}\cdot \sqrt{\frac{\widehat{p}\cdot\left(1-\widehat{p} \right)}{n}} \to E=2.0537\cdot \sqrt{\frac{0.25\cdot0.75}{1000}}=0.0281$ \\ Por tanto el intervalo de confianza será: \\$\left(\widehat{p} - E , \widehat{p} + E \right)=\left(0.25 - 0.0281 , 0.25 + 0.0281 \right)=\left(0.2219, 0.2781 \right)$ \\  \\ 
+    \begin{tikzpicture}[scale=0.4]
+      \tikzmath{\a = -10; \b = 10; \aa = \a -1; \bb = \b + 1 ; \dist = \b - \a; \med = (\a + \b)/2;}
+      \draw[very thick] (\a,0) -- (\b,0);
+      \path [draw=black, fill=white] (\b,0) circle (2pt);
+      \path [draw=black, fill=white] (\a,0.0) circle (2pt);
+      \draw[latex-latex] (\a - 1.5,0) -- (\b + 1.5,0) ;
+      \draw[shift={(\a,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\a,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$0.2219$};
+      \draw[shift={(\med,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\med,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$0.25$};
+      \draw[shift={(\b,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+      \draw[shift={(\b,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$0.2781$};
+      \draw[decorate,decoration={brace}, thick](\med,0.2)--(\b,0.2) node[above, midway] {$E=0.0281$}; 
+    \end{tikzpicture} \\
+    "
+4,"Para estimar la proporción de las familias de una determinada ciudad que tienen smart tv, 
+se quiere
+utilizar una muestra aleatoria de medida n. Calcula el valor mínimo de n para garantizar que, a un nivel de
+confianza del 92\%, el error en la estimación sea menor que 0,05. (PISTA: Como se desconoce la proporción, 
+se ha de tomar el caso más desfavorable que será 0.5)","Calculamos el tamaño de la muestra para estimar la proporcion con un error máximo: 0.05, si la proporción muestral es: 0.5 y el grado de confianza: 92.0\%. \\ \\ Valor crítico: \\ $\alpha=1-0.92=0.08\to \frac{\alpha}{2}=0.04$ \\ \\ $P(Z>z_{\alpha/2})=0.04\to P(Z<z_{\alpha/2})=0.96 \to z_{\alpha/2} =1.7507$ \\ 
+    \begin{tikzpicture}[scale=0.8]
+    \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+    \tikzmath{\conf = 0.92; \crit= 1.7507; \a=0.04);}
+    \begin{axis}[no markers, domain=-5:5, samples=100, axis lines=left, height=5cm, width=12cm, xtick={0,\crit}, ytick=\empty, xticklabels = {$0$, $z_{\frac{\alpha}{2}}=\crit$},enlargelimits=false, clip=false, axis on top]
+      \addplot [fill=cyan!20, draw=none, domain=-\crit:\crit] {gauss(0,1)} \closedcycle;
+      \addplot [very thick,cyan!50!black] {gauss(0,1)};
+    \end{axis}
+    \node[] at (5.2,1.5) {$\conf$};	
+    \draw[-]   (\crit+6.5,1)node[right]{$\a$}  --  (\crit+5.6,0.1) ;
+    \end{tikzpicture} \\
+    Error cometido: \\ $E=z_{\alpha / 2}\cdot \sqrt{\frac{\widehat{p}\cdot\left(1-\widehat{p} \right)}{n}} \to n =\frac{\widehat{p}\cdot\left(1-\widehat{p} \right)\cdot z_{\alpha / 2}^2}{E^2} \to n \geq307$ \\ "
+5,"La cantidad de horas semanales que los habitantes de Utebo emplean en ver series de TV
+se puede aproximar
+por una distribución normal con una desviación típica de 0,64. Se toma una muestra aleatoria simple y se
+obtienen los siguientes datos: \\
+6.9, 7.3, 7.6, 6.6, 6.5, 7.1, 6.2, 6.9, 7.8, 6.7, 7.0, 6.5, 5.5, 7.2, 7.6, 5.8 \\
+
+Determinar el nivel de confianza para el cual el intervalo de confianza para la media de
+horas semanales que se ven series de TV es (6.65 , 7). Detallar los pasos realizados para obtener los resultados.","La media muestral es: 6.825 \\ Del intervalo obtenemos la media muestral: 6.825 y el error máximo: $6.825-6.65=0.175$ \\ Calculamos el grado de confianza para un error máximo: 0.175, siendo el tamaño muestral: 16 y la desviación típica: 0.64. \\ \\  \\ Como $E=z_{\alpha / 2}\cdot \frac{\sigma}{\sqrt{n}} \Rightarrow z_{\alpha / 2} =\frac{E \cdot \sqrt{n}}{\sigma}\to z_{\alpha / 2}=1.09$ \\ $P(Z>z_{\alpha / 2})=P(Z>1.09)=\frac{\alpha}{2}=0.1379$ \\ $\alpha=0.2757 \to \quad confianza=1 - \alpha=0.7243 \to 72.43 \%$ "
